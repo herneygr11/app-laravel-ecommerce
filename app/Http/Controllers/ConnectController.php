@@ -22,4 +22,17 @@ class ConnectController extends Controller
 
     } # End method getLogin
 
+    /**
+     * Retorna la vista principal de registro
+     * 
+     *  @author Herney Ruiz-Meza
+     * 
+     *  @return view register 
+     *  @param not
+     */
+    public function getRegister()
+    {
+        return view('connect.register');
+    } # End method getRegister
+
 } # End class ConnectController

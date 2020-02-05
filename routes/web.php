@@ -13,7 +13,10 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('index');
 
 // Router Auth
 Route::get('/login', 'ConnectController@getLogin')->name('login');
+
+// Router Registrer
+Route::get('/register', 'ConnectController@getRegister')->name('register');

@@ -20,3 +20,4 @@ Route::get('/login', 'ConnectController@getLogin')->name('login');
 
 // Router Registrer
 Route::get('/register', 'ConnectController@getRegister')->name('register');
+Route::post('/register', 'ConnectController@postRegister')->name('register');

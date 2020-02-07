@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegisterRequest;
 use Illuminate\Http\Request;
 use phpDocumentor\Reflection\Types\Boolean;
 
@@ -27,12 +28,25 @@ class ConnectController extends Controller
      * 
      *  @author Herney Ruiz-Meza
      * 
-     *  @return view register 
      *  @param not
+     *  @return view register 
      */
     public function getRegister()
     {
         return view('connect.register');
     } # End method getRegister
+
+    /**
+     * Envia los datos de regsitro al modelo Connect
+     * 
+     *  @author Herney Ruiz-Meza
+     * 
+     *  @param request
+     *  @return 
+     */
+    public function postRegister(RegisterRequest $request)
+    {
+        
+    } # End method postRegister
 
 } # End class ConnectController

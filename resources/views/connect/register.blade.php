@@ -33,6 +33,12 @@
                 {!! Form::text( 'name', null, [ 'class' => 'form-control' ] ) !!}
 
             </div>
+            
+            @error('name')
+                <div class="ml-3 pt-1 d-block text-danger alert-error">
+                    {{ $message }}
+                </div>
+            @enderror
 
         </div>
 
@@ -54,6 +60,12 @@
 
             </div>
 
+            @error('last_name')
+            <div class="ml-3 pt-1 d-block text-danger">
+                {{ $message }}
+            </div>
+        @enderror
+
         </div>
 
         <div class="form-group">
@@ -74,6 +86,12 @@
 
             </div>
 
+            @error('email')
+            <div class="ml-3 pt-1 d-block text-danger">
+                {{ $message }}
+            </div>
+        @enderror
+
         </div>
 
         <div class="form-group">
@@ -93,6 +111,12 @@
 
             </div>
 
+            @error('password')
+            <div class="ml-3 pt-1 d-block text-danger">
+                {{ $message }}
+            </div>
+        @enderror
+
         </div>
 
         <div class="form-group">
@@ -111,6 +135,12 @@
                 {!! Form::password( 'confirm_password', [ 'class' => 'form-control' ] ) !!}
 
             </div>
+
+            @error('confirm_password')
+            <div class="ml-3 pt-1 d-block text-danger">
+                {{ $message }}
+            </div>
+        @enderror
 
         </div>
 

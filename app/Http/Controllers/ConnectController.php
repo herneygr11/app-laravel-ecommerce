@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RegisterRequest;
 use Illuminate\Http\Request;
 use phpDocumentor\Reflection\Types\Boolean;
+use Illuminate\Support\Facades\Hash;
+
+use App\Models\User;
 
 class ConnectController extends Controller
 {
@@ -41,12 +44,18 @@ class ConnectController extends Controller
      * 
      *  @author Herney Ruiz-Meza
      * 
-     *  @param request:RegisterRequest
+     *  @param RegisterRequest $request
      *  @return 
      */
     public function postRegister(RegisterRequest $request)
     {
-        
+        // Encripto de la contraseña
+        $request['password'] = Hash::make($request['password']);
+
+        if ( User::create($request->all()) ) {
+            
+            return redirect()->route('login');
+        }
     } # End method postRegister
 
 } # End class ConnectController

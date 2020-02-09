@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 // Router Auth
 Route::get('/login', 'ConnectController@getLogin')->name('login');
+Route::post('/login', 'ConnectController@postLogin')->name('login');
+Route::get('/logout', 'ConnectController@getLogout')->name('logout');
 
 // Router Registrer
 Route::get('/register', 'ConnectController@getRegister')->name('register');

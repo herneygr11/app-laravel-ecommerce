@@ -14,8 +14,8 @@ class ConnectController extends Controller
      * 
      *  @author Herney Ruiz-Meza
      * 
-     *  @return view login 
      *  @param not
+     *  @return view login 
      */
     public function getLogin()
     {
@@ -41,7 +41,7 @@ class ConnectController extends Controller
      * 
      *  @author Herney Ruiz-Meza
      * 
-     *  @param request
+     *  @param request:RegisterRequest
      *  @return 
      */
     public function postRegister(RegisterRequest $request)

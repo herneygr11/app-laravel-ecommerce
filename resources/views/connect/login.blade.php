@@ -34,6 +34,12 @@
 
             </div>
 
+            @error('email')
+            <div class="ml-3 pt-1 d-block text-danger">
+                {{ $message }}
+            </div>
+            @enderror
+
         </div>
 
         <div class="form-group">
@@ -53,10 +59,23 @@
 
             </div>
 
+            @error('password')
+            <div class="ml-3 pt-1 d-block text-danger">
+                {{ $message }}
+            </div>
+            @enderror
+
         </div>
 
-        {!! Form::submit('Ingresar', [ 'class' => 'btn btn-success w-100' ]) !!}
+        @if (Session::has('message_login'))
 
+            <div class="m-2 pt-1 d-block text-danger">
+                {{ Session::get('message_login') }}
+            </div>
+
+        @endif
+
+        {!! Form::submit('Ingresar', [ 'class' => 'btn btn-success w-100' ]) !!}
         {!! Form::close() !!}
 
         <div class="footer mt-3">

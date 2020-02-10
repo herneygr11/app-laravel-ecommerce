@@ -10,3 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+# Prefijos para nuestras rutas de admin
+Route::prefix('/admin')->group( function(){
+
+    Route::get('/', 'admin\DashboarController@getDashboar');
+});

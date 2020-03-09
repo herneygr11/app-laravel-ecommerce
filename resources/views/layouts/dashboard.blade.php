@@ -13,6 +13,17 @@
 
         <div class="col2">
 
+            @include('includes.dashboard.navbar')
+
+            <div class="page">
+
+                @include('includes.dashboard.breadcrumb')
+
+                @section('content')
+                @show
+
+            </div>
+
         </div>
 
     </div>

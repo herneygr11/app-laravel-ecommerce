@@ -1,4 +1,4 @@
-const mix = require('laravel-mix');
+const mix = require("laravel-mix");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,5 +11,28 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+/**
+ * Compilacion de archivos stylos a css
+ */
+mix.stylus(
+    "resources/stylus/admin/admin.styl", // admin/admin.css
+    "public/css/admin/admin.css"
+)
+.stylus(
+    "resources/stylus/login/login.styl", // home/connect.css
+    "public/css/login/login.css"
+);
+
+/**
+ * Compilacion de archivos css a css
+ */
+mix.styles(["resources/css/bootstrap.min.css"], "public/css/app.css");
+
+mix.scripts(
+    [
+        "resources/js/jquery-3.4.1.slim.min.js",
+        "resources/js/popper.min.js",
+        "resources/js/bootstrap.min.js"
+    ],
+    "public/js/app.js"
+);

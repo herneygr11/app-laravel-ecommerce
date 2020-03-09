@@ -1,0 +1,49 @@
+body {
+  background-color: #f6f6f6;
+  font-size: 14px;
+  margin: 0px;
+}
+.box {
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #d6d6d6;
+  position: absolute;
+  width: 500px;
+}
+.box .btn-success {
+  background-color: #f83009;
+  border: 0;
+}
+.box .form-control:focus,
+.box .form-control:active {
+  outline: none;
+  box-shadow: none;
+}
+.box .inside {
+  padding: 16px;
+}
+.box .header {
+  background-color: #26d1fb;
+  border-radius: 8px 8px 0px 0px;
+  padding: 16px;
+}
+.box .header a img {
+  display: block;
+  margin: 0px auto;
+  width: 25%;
+}
+.box .footer a {
+  display: block;
+  font-size: 0.9em;
+}
+.box .footer a:last-child {
+  margin-top: 5px;
+}
+.box_login {
+  left: calc(50% - 250px);
+  top: calc(50% - 240px);
+}
+.box_register {
+  left: calc(50% - 250px);
+  top: calc(50% - 300);
+}

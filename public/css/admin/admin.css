@@ -1,0 +1,75 @@
+body {
+  background-color: #f5f6fa;
+  font-size: 14px;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Roboto', sans-serif;
+}
+.wrapper {
+  min-height: 100vh;
+  overflow: hidden;
+}
+.wrapper .col1 {
+  float: left;
+  position: relative;
+  z-index: 999;
+  width: 20%;
+}
+.wrapper .col2 {
+  float: left;
+  width: 80%;
+}
+.sidebar {
+  background-color: #fff;
+  min-height: 100vh;
+}
+.sidebar .section-top {
+  background-color: #2caaff;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+}
+.sidebar .section-top .logo {
+  display: block;
+  margin: 0px auto;
+  padding-top: 24px;
+  width: 60%;
+}
+.sidebar .section-top .logo img {
+  display: block;
+  margin: 0px auto;
+  width: 30%;
+}
+.sidebar .section-top .user {
+  color: #fff;
+  padding: 16px;
+}
+.sidebar .section-top .user a {
+  padding-left: 0.5em;
+  color: #fff;
+  font-size: 1em;
+}
+.sidebar .main {
+  margin-top: 10px;
+}
+.sidebar .main ul {
+  padding: 0;
+}
+.sidebar .main ul li {
+  margin-bottom: 4px;
+  list-style: none;
+}
+.sidebar .main ul li a {
+  color: #8998ac;
+  display: block;
+  font-size: 1.1em;
+  padding: 12px 0px;
+  text-decoration: none;
+}
+.sidebar .main ul li a svg {
+  margin: 0px 20px;
+}
+.sidebar .main ul li a:hover {
+  background-color: #2caaff;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+  color: #fff;
+  text-decoration: none;
+}

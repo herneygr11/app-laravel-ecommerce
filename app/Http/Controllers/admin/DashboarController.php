@@ -10,7 +10,8 @@ class DashboarController extends Controller
     /**
      * Llamamos librerias necesarias y middleware
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('auth');
         $this->middleware('isadmin');
     } # End method __construct

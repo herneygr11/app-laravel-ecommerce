@@ -35,7 +35,7 @@
         <ul>
 
             <li>
-                <a href="{{ route('home') }}"> <i class="fas fa-home"></i> Dashboard</a>
+                <a href="{{ route('home.admin') }}"> <i class="fas fa-home"></i> Dashboard</a>
             </li>
 
             <li>

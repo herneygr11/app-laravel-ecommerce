@@ -35,15 +35,15 @@
         <ul>
 
             <li>
-                <a href="{{ route('home.admin') }}"> <i class="fas fa-home"></i> Dashboard</a>
+                <a href="{{ route('admin.index') }}"> <i class="fas fa-home"></i> Dashboard</a>
             </li>
 
             <li>
-                <a href="{{ route('products') }}"> <i class="fas fa-boxes"></i> Productos</a>
+                <a href="{{ route('users.index') }}"> <i class="fas fa-boxes"></i> Usuarios</a>
             </li>
 
             <li>
-                <a href="{{ route('users') }}"> <i class="fas fa-user"></i> Usuarios</a>
+                <a href="{{ route('products.index') }}"> <i class="fas fa-user"></i> Productos</a>
             </li>
 
         </ul>

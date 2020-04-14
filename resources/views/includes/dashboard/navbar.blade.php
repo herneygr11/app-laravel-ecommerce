@@ -6,7 +6,7 @@
 
             <li class="nav item">
 
-                <a href="{{ route('home.admin')}}" class="nav-link">
+                <a href="{{ route('admin.index')}}" class="nav-link">
                     <i class="fas fa-home"></i>
                     Dashboard
                 </a>

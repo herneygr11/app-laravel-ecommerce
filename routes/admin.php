@@ -14,9 +14,9 @@
 # Prefijos para nuestras rutas de admin
 Route::prefix('/admin')->group( function(){
 
-    Route::get('/', 'admin\DashboarController@getDashboar')->name('home.admin');
+    Route::get('/', 'admin\DashboarController@getDashboar')->name('admin.index');
 
-    Route::get('/usuarios', 'admin\DashboarController@getDashboar')->name('products');
+    Route::get('/usuarios', 'admin\DashboarController@getDashboar')->name('users.index');
 
     Route::get('/productos', 'admin\DashboarController@getDashboar')->name('users');
 

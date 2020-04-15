@@ -14,10 +14,24 @@
 # Prefijos para nuestras rutas de admin
 Route::prefix('/admin')->group( function(){
 
-    Route::get('/', 'admin\DashboarController@getDashboar')->name('admin.index');
+    Route::get('/', 'admin\DashboarController@getDashboar')
+        ->name('admin.index');
 
-    Route::get('/usuarios', 'admin\DashboarController@getDashboar')->name('users.index');
+        # Start router usuario
+        Route::get('/usuarios', 'admin\UserController@index')
+        ->name('users.index');
 
-    Route::get('/productos', 'admin\DashboarController@getDashboar')->name('users');
+        Route::get('/usuarios/{id}', 'admin\UserController@index')
+        ->name('users.edit');
+
+        Route::put('/usuarios/{id}', 'admin\UserController@index')
+        ->name('users.edit');
+
+        Route::delete('/usuarios/{id}', 'admin\UserController@index')
+        ->name('users.delete');
+        # End router usuario
+
+    Route::get('/productos', 'admin\DashboarController@getDashboar')
+        ->name('products.index');
 
 });

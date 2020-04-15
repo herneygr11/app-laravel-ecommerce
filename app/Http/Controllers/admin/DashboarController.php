@@ -19,7 +19,7 @@ class DashboarController extends Controller
     /**
      * Retorna la vista principal del dashboard
      *
-     *  @author Herney Ruiz-Meza
+     *  @author Herney
      *
      *  @return view dashboar
      */

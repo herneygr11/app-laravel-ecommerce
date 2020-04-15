@@ -10,8 +10,6 @@
 
         <div class="user">
 
-            <span class="subtitle">Hola : </span>
-
             <div class="name">
 
                 {{ Auth::user()->name }} {{ Auth::user()->last_name }}
@@ -39,11 +37,11 @@
             </li>
 
             <li>
-                <a href="{{ route('users.index') }}"> <i class="fas fa-boxes"></i> Usuarios</a>
+                <a href="{{ route('users.index') }}"> <i class="fas fa-user"></i> Usuarios</a>
             </li>
 
             <li>
-                <a href="{{ route('products.index') }}"> <i class="fas fa-user"></i> Productos</a>
+                <a href="{{ route('products.index') }}"> <i class="fas fa-boxes"></i> Productos</a>
             </li>
 
         </ul>

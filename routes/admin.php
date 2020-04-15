@@ -17,21 +17,23 @@ Route::prefix('/admin')->group( function(){
     Route::get('/', 'admin\DashboarController@getDashboar')
         ->name('admin.index');
 
-        # Start router usuario
-        Route::get('/usuarios', 'admin\UserController@index')
-        ->name('users.index');
+    # Start router usuario
+    Route::get('/usuarios', 'admin\UserController@index')
+    ->name('users.index');
 
-        Route::get('/usuarios/{id}', 'admin\UserController@index')
-        ->name('users.edit');
+    Route::get('/usuarios/{id}', 'admin\UserController@index')
+    ->name('users.edit');
 
-        Route::put('/usuarios/{id}', 'admin\UserController@index')
-        ->name('users.edit');
+    Route::put('/usuarios/{id}', 'admin\UserController@index')
+    ->name('users.edit');
 
-        Route::delete('/usuarios/{id}', 'admin\UserController@index')
-        ->name('users.delete');
-        # End router usuario
+    Route::delete('/usuarios/{id}', 'admin\UserController@index')
+    ->name('users.delete');
+    # End router usuario
 
-    Route::get('/productos', 'admin\DashboarController@getDashboar')
+    # Start router usuario
+    Route::get('/productos', 'admin\ProductController@index')
         ->name('products.index');
+    # End router usuario
 
 });

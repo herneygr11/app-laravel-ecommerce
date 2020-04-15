@@ -5,13 +5,13 @@
 @section('content')
 
 <div class="box box_login">
-    
+
     <div class="header">
         <a href="{{ route('index') }}">
             <img src="{{ asset('src/img/logo.png') }}" alt="logo">
         </a>
     </div>
-    
+
     <div class="inside">
 
         {!! Form::open( [ 'route' => 'login'] ) !!}

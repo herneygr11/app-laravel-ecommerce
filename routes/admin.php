@@ -31,9 +31,16 @@ Route::prefix('/admin')->group( function(){
     ->name('users.delete');
     # End router usuario
 
-    # Start router usuario
+    # Start router products
     Route::get('/productos', 'admin\ProductController@index')
         ->name('products.index');
-    # End router usuario
+
+    Route::get('/productos/crear', 'admin\ProductController@createProduct')
+        ->name('products.create');
+
+    Route::post('/productos', 'admin\ProductController@saveProduct')
+        ->name('products.save');
+
+    # End router products
 
 });

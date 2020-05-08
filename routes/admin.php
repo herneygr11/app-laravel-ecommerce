@@ -40,7 +40,11 @@ Route::prefix('/admin')->group( function(){
 
     Route::post('/productos', 'admin\ProductController@saveProduct')
         ->name('products.save');
-
     # End router products
+
+    # Start router Categories
+    Route::get('/categorias', 'admin\CategoryController@index')
+        ->name('category.index');
+    # End router Categories
 
 });

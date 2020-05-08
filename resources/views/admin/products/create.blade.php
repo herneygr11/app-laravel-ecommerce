@@ -249,6 +249,12 @@
 
             </div>
 
+            <div class="row">
+                <div class="col-12">
+                    {!! Form::submit('Guardar', ['class' => 'btn btn-success']) !!}
+                </div>
+            </div>
+
             {!! Form::close() !!}
 
         </div>

@@ -77,7 +77,7 @@ class ConnectController extends Controller
     /**
      * Envia los datos de regsitro al modelo User
      * 
-     *  @author Herney Ruiz-Meza
+     *  @author Herney
      * 
      *  @param RegisterRequest $request
      *  @return View login

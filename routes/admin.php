@@ -44,7 +44,10 @@ Route::prefix('/admin')->group( function(){
 
     # Start router Categories
     Route::get('/categorias', 'admin\CategoryController@index')
-        ->name('category.index');
+        ->name('categories.index');
+        
+    Route::post('/categorias', 'admin\CategoryController@saveCategory')
+        ->name('categories.save');
     # End router Categories
 
 });

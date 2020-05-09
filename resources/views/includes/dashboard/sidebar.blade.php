@@ -30,7 +30,7 @@
                 <a href="{{ route('products.index') }}"> <i class="fas fa-boxes"></i>Productos</a>
             </li>
             <li>
-                <a href="{{ route('category.index') }}"> <i class="fas fa-folder-open"></i>Categorias</a>
+                <a href="{{ route('categories.index') }}"> <i class="fas fa-folder-open"></i>Categorias</a>
             </li>
         </ul>
     </div>

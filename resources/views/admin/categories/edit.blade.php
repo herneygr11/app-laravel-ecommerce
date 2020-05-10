@@ -23,7 +23,7 @@
 
                         <h2 class="title">
                             <i class="fas fa-folder-open"></i>
-                            Agregar categoria
+                            Editar categoria
                         </h2>
 
                     </div>
@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="inside">
-                    {!! Form::open( [ 'route' => 'categories.save' ] ) !!}
+                    {!! Form::open( [ 'route' => ['categories.update', 'id' => $category->id], 'method' => 'put'] ) !!}
                     <div class="form-group">
                         {!! Form::label( 'name', 'Nombre' ) !!}
                         <div class="input-group text-center">
@@ -40,7 +40,7 @@
                                     <i class="far fa-keyboard"></i>
                                 </div>
                             </div>
-                            {!! Form::text( 'name', null, [ 'class' => 'form-control' ] ) !!}
+                            {!! Form::text( 'name', $category->name, [ 'class' => 'form-control' ] ) !!}
                         </div>
 
                         @error('name')
@@ -58,7 +58,7 @@
                                     <i class="fas fa-icons"></i>
                                 </div>
                             </div>
-                            {!! Form::text( 'icon', null, [ 'class' => 'form-control' ] ) !!}
+                            {!! Form::text( 'icon', $category->icon, [ 'class' => 'form-control' ] ) !!}
                         </div>
 
                         @error('icon')
@@ -67,11 +67,11 @@
                         </div>
                         @enderror
                     </div>
+
+                    {!! Form::submit('Editar', ['class' => 'btn btn-success mx-2 mb-2']) !!}
+
+                    {!! Form::close() !!}
                 </div>
-
-                {!! Form::submit('Guardar', ['class' => 'btn btn-success mx-2 mb-2']) !!}
-
-                {!! Form::close() !!}
 
             </div>
         </div>
@@ -107,19 +107,20 @@
                                 <td class="text-center">{!! htmlspecialchars_decode( $category->icon ) !!}</td>
                                 <td>{{ $category->name }}</td>
                                 <td class="d-flex">
-                                    <a href="{{ route('categories.edit', [ 'slug'=> $category->slug ]) }}"
-                                        class="btn btn-primary mx-1 btn-accion">
+                                    <a href="" class="btn btn-primary mx-1 btn-accion">
 
                                         <i class="fas fa-edit"></i>
 
                                     </a>
                                     {!! Form::open( [ 'route' => ['categories.delete', 'id' => $category->id], 'method'
-                                    => 'delete'] ) !!}
+                                    => 'delete' ] ) !!}
+
                                     <button class="btn btn-danger mx-1 btn-accion">
 
                                         <i class="fas fa-trash-alt"></i>
 
                                     </button>
+
                                     {!! Form::close() !!}
                                 </td>
                             </tr>

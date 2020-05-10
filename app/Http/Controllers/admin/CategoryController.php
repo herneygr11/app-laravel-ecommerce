@@ -21,19 +21,24 @@ class CategoryController extends Controller
     /**
      * Retorna la vista principal de las categorias
      *
-     *  @author Herney
+     *  @author Herney Ruiz
      *
      *  @return view categories.index
      */
     public function index()
     {
-        return view('admin.categories.index');
+        $categories = Category::orderBy( 'id', 'Desc' )
+        ->get();
+        
+        if (view()->exists('admin.categories.index')){
+            return view('admin.categories.index', compact( 'categories' ) );
+        }
     }  # End method index
 
     /**
      * Remite la peticion post al modelo
      *
-     *  @author Herney
+     *  @author Herney Ruiz
      *
      *  @param CategoryRequest $request
      *  @return view categories.index
@@ -43,8 +48,47 @@ class CategoryController extends Controller
         $request['icon'] = e( $request['icon'] );
         
         if ( Category::create( $request->all() ) ) {
-            return view('admin.categories.index');
+            return redirect()->route('categories.index');
         }
     } # End method saveCategory
+
+    /**
+     * Retonar la vista de editar
+     *
+     *  @author Herney Ruiz
+     *
+     *  @param String $slug
+     *  @return view categories.index
+     */
+    public function editCategory(String $slug)
+    {
+        $categories = Category::orderBy( 'id', 'Desc' )
+        ->get();
+
+        $category = Category::where( 'slug', $slug )
+        ->first();
+
+        if ( view()->exists('admin.categories.edit') ){
+            return view('admin.categories.edit', compact( 'categories', 'category' ));
+        }
+    } # End method editCategory
+
+    public function updateCategory( CategoryRequest $request, int $id )
+    {
+        $category = Category::findOrFail($id);
+
+        if ( $category->update( $request->all() ) ) {
+            return redirect()->route('categories.index');
+        }
+    } # End method updateCategory
+
+    public function deleteCategory( int $id )
+    {
+        $category = Category::findOrFail($id);
+
+        if ( $category->delete() ) {
+            return redirect()->route('categories.index');
+        }
+    } # End method deleteCategory
 
 } # End class CategoryController

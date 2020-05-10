@@ -46,8 +46,17 @@ Route::prefix('/admin')->group( function(){
     Route::get('/categorias', 'admin\CategoryController@index')
         ->name('categories.index');
         
+    Route::get('/categorias/{slug}', 'admin\CategoryController@editCategory')
+        ->name('categories.edit');
+
     Route::post('/categorias', 'admin\CategoryController@saveCategory')
         ->name('categories.save');
+
+    Route::put('/categorias/{id}', 'admin\CategoryController@updateCategory')
+        ->name('categories.update');
+
+    Route::delete('/categorias/{id}', 'admin\CategoryController@deleteCategory')
+        ->name('categories.delete');
     # End router Categories
 
 });

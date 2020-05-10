@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-    use Sluggable;
+    use Sluggable, SoftDeletes;
+
+    protected $dates = ['deleted_at'];
 
     /**
      * The attributes that are mass assignable.
@@ -15,7 +18,7 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
+        'name', 'slug', 'iamge', 'price', 'in_discount', 'discount', 'description', 'status'
     ];
 
     /**

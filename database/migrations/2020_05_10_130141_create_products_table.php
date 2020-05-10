@@ -25,13 +25,14 @@ class CreateProductsTable extends Migration
             $table->text('description')->unique();
             $table->boolean('status');
 
-            $table->bigInteger('category_id');
+            $table->bigInteger('category_id')->unsigned();
 
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreignId('user_id')
-                ->constrained()
+            $table->foreign('category_id')
+                ->references('id')
+                ->on('categories')
                 ->onDelete('cascade');
         });
     }

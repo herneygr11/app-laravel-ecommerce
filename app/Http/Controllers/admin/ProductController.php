@@ -3,23 +3,36 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use League\CommonMark\Util\ArrayCollection;
 
 class ProductController extends Controller
 {
-    public function __construct() {
-        //
+    /**
+     * Llamamos librerias necesarias y middleware
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('isadmin');
     } # End method __construct
 
     public function index()
     {
-        return view('admin.products.index');
+        if ( view()->exists('admin.products.index') ){
+            return view('admin.products.index');
+        }
     } # End method index
 
     public function createProduct()
     {
-        return view('admin.products.create');
+        $categories = Category::all()->pluck('name', 'id');
+
+        if ( view()->exists('admin.products.create') ){
+            return view('admin.products.create', compact( 'categories' ) );
+        }
     } # End method createProduct
 
     public function saveProduct()

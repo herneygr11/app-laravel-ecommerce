@@ -88,7 +88,7 @@
 
                             </div>
 
-                            {!! Form::select( 'category', [ 1, 2] , null, [ 'class' => 'form-control' ] ) !!}
+                            {!! Form::select( 'category', $categories, null, [ 'class' => 'form-control' ] ) !!}
 
                         </div>
 

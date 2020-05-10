@@ -168,7 +168,7 @@
 
                     <div class="form-group">
 
-                        {!! Form::label( 'indiscount', '¿Esta en descuento?' ) !!}
+                        {!! Form::label( 'in_discount', '¿Esta en descuento?' ) !!}
 
                         <div class="input-group">
 
@@ -180,11 +180,11 @@
 
                             </div>
 
-                            {!! Form::select( 'indiscount', [ '0' => 'No', '1' => 'Si'] , 0, [ 'class' => 'form-control' ] ) !!}
+                            {!! Form::select( 'in_discount', [ '0' => 'No', '1' => 'Si'] , 0, [ 'class' => 'form-control' ] ) !!}
 
                         </div>
 
-                        @error('discount')
+                        @error('in_discount')
                         <div class="ml-3 pt-1 d-block text-danger">
                             {{ $message }}
                         </div>

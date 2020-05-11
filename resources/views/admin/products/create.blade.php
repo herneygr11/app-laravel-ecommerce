@@ -38,7 +38,7 @@
 
         <div class="inside">
 
-            {!! Form::open( [ 'route' => 'products.save' ] ) !!}
+            {!! Form::open( [ 'route' => 'products.save', 'files' => 'true' ] ) !!}
 
             <div class="row">
 
@@ -110,16 +110,16 @@
 
                     <div class="form-group">
 
-                        {!! Form::label( 'image', 'Imagen' ) !!}
+                        {!! Form::label( 'file_image', 'Imagen' ) !!}
 
                         <div class="custom-file">
 
-                            {!! Form::file( 'image', null, [ 'class' => 'custom-file-label', 'id' => "image" ] ) !!}
+                            {!! Form::file( 'file_image', [ 'class' => 'custom-file-label', 'id' => "image", 'accept' => 'image/*'] ) !!}
                             {!! Form::label( 'image', 'Imagen', [ 'class' => 'custom-file-label'] ) !!}
 
                         </div>
 
-                        @error('image')
+                        @error('file_image')
                         <div class="ml-3 pt-1 d-block text-danger">
                             {{ $message }}
                         </div>

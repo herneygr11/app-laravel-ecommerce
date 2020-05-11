@@ -5,9 +5,9 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Models\Category;
-use Illuminate\Http\Request;
 use App\Models\Product;
-use League\CommonMark\Util\ArrayCollection;
+use Config;
+use Str;
 
 class ProductController extends Controller
 {
@@ -39,8 +39,15 @@ class ProductController extends Controller
     public function saveProduct( ProductRequest $request )
     {
         $request['status'] = 1;
-        // TODO: Identificar imagen y guar url en base de datos
-        $request['image'] = 'image.png';
+        
+        // preparamos para subir la imagen al servidor
+        $path = 'images/products/' . date('Y-m-d');
+        $fileExt = trim( $request->file('file_image')->getClientOriginalExtension());
+        $fileName = rand(1, 999) . '-' . Str::slug($request->name) . '.' . $fileExt;
+
+        $request->file('file_image')->move( $path, $fileName );
+
+        $request['image'] = $fileName;
         
         if ( Product::create( $request->all() ) ) {
             return redirect()->route('products.index');

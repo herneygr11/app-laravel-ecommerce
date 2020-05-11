@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Product;
@@ -35,9 +36,15 @@ class ProductController extends Controller
         }
     } # End method createProduct
 
-    public function saveProduct()
+    public function saveProduct( ProductRequest $request )
     {
-        //
+        $request['status'] = 1;
+        // TODO: Identificar imagen y guar url en base de datos
+        $request['image'] = 'image.png';
+        
+        if ( Product::create( $request->all() ) ) {
+            return redirect()->route('products.index');
+        }
     } # End method saveProduct
 
 } # End class ProductController

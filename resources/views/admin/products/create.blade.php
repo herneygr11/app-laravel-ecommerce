@@ -76,7 +76,7 @@
 
                     <div class="form-group">
 
-                        {!! Form::label( 'category', 'Categoria' ) !!}
+                        {!! Form::label( 'category_id', 'Categoria' ) !!}
 
                         <div class="input-group">
 
@@ -88,11 +88,11 @@
 
                             </div>
 
-                            {!! Form::select( 'category', $categories, null, [ 'class' => 'form-control' ] ) !!}
+                            {!! Form::select( 'category_id', $categories, null, [ 'class' => 'form-control' ] ) !!}
 
                         </div>
 
-                        @error('category')
+                        @error('category_id')
                         <div class="ml-3 pt-1 d-block text-danger">
                             {{ $message }}
                         </div>

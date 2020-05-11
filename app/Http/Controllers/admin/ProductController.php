@@ -6,8 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Models\Category;
 use App\Models\Product;
-use Config;
-use Str;
+use Str, Image;
 
 class ProductController extends Controller
 {
@@ -46,6 +45,12 @@ class ProductController extends Controller
         $fileName = rand(1, 999) . '-' . Str::slug($request->name) . '.' . $fileExt;
 
         $request->file('file_image')->move( $path, $fileName );
+
+        $imageMiniature = Image::make($path . '/' .$fileName);
+        $imageMiniature->fit( 256, 256, function( $constraint ){
+            $constraint->upsize();
+        });
+        $imageMiniature->save( $path . '/' . 'm_' . $fileName );
 
         $request['image'] = $fileName;
         

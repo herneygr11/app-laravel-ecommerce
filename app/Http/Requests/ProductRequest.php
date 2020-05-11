@@ -25,7 +25,7 @@ class ProductRequest extends FormRequest
     {
         return [
             'name'          => 'required|unique:products,id',
-            'file_image'         => 'required', // TODO: rules tipo image
+            'file_image'    => 'required', // TODO: rules tipo image
             'price'         => 'required',
             'in_discount'   => 'required',
             'discount'      => 'required',

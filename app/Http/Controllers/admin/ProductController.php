@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ProductRequest;
+use App\Http\Requests\ProductCreateRequest;
+use App\Http\Requests\ProductUpdateRequest;
 use App\Models\Category;
 use App\Models\Product;
 use Str, Image;
@@ -21,8 +22,9 @@ class ProductController extends Controller
 
     public function index()
     {
-        $products = Product::orderBy( 'id', 'desc' )->paginate(20);
-
+        $products = Product::with(['category'])->orderBy( 'id', 'desc' )
+            ->paginate(20);
+        
         if ( view()->exists('admin.products.index') ){
             return view('admin.products.index', compact('products'));
         }
@@ -37,7 +39,7 @@ class ProductController extends Controller
         }
     } # End method createProduct
 
-    public function saveProduct( ProductRequest $request )
+    public function saveProduct( ProductCreateRequest $request )
     {
         $request['status'] = 1;
         
@@ -74,7 +76,7 @@ class ProductController extends Controller
         }
     } # End method editProduct
 
-    public function updateProduct( ProductRequest $request, int $id )
+    public function updateProduct( ProductUpdateRequest $request, int $id )
     {
         $product = Product::findOrFail( $id );
 

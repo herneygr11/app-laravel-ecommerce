@@ -236,6 +236,38 @@
                     </div>
 
                     <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                                {!! Form::label( 'status', 'Estado' ) !!}
+
+                                <div class="input-group">
+
+                                    <div class="input-group-prepend">
+
+                                        <div class="input-group-text">
+                                            <i class="fas fa-question-circle"></i>
+                                        </div>
+
+                                    </div>
+
+                                    {!! Form::select( 'status', [ '0' => 'Inactivo/a', '1' => 'Activo/a'] ,
+                                    null, [ 'class' => 'form-control' ] ) !!}
+
+                                </div>
+
+                                @error('status')
+                                <div class="ml-3 pt-1 d-block text-danger">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+
+                            </div>
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+
+                    <div class="row">
 
                         <div class="col-md-12">
 
@@ -288,7 +320,8 @@
                 </div>
 
                 <div class="inside">
-                    <img src="{{ asset($product->image_path . '/' . $product->image) }}" class="img-fluid" alt="{{ $product->name }}">
+                    <img src="{{ asset($product->image_path . '/' . $product->image) }}" class="img-fluid"
+                        alt="{{ $product->name }}">
                 </div>
 
             </div>

@@ -30,6 +30,7 @@ class ProductUpdateRequest extends FormRequest
             'discount'      => 'required',
             'description'   => 'required|unique:products,id',
             'category_id'   => 'required',
+            'status'   => 'required',
         ];
     }
 }

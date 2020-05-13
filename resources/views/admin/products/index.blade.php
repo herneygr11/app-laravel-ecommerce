@@ -51,9 +51,11 @@
                     <tr class="">
                         <td> {{ $product->id }} </td>
                         <td>
-                            <a data-fancybox="gallery" href="{{ asset($product->image_path . '/m_' . $product->image) }}">
-                                <img src="{{ asset($product->image_path . '/m_' . $product->image) }}" width="64"
-                                    alt="{{ $product->name }}">
+                            <a 
+                                data-fancybox="gallery"
+                                href="{{ asset($product->image_path . '/m_' . $product->image) }}"
+                            >
+                                <img src="{{ asset($product->image_path . '/m_' . $product->image) }}" width="64" alt="{{ $product->name }}" >
                             </a>
                         </td>
                         <td> {{ $product->name }} </td>
@@ -61,7 +63,7 @@
                         <td> {{ $product->price }} </td>
                         <td class="d-flex">
 
-                            <a href="{{ route('products.edit', ['slug' =>  $product->id]) }}"
+                            <a href="{{ route('products.edit', ['slug' =>  $product->slug]) }}"
                                 class="btn btn-primary mx-1 btn-accion">
 
                                 <i class="fas fa-edit"></i>

@@ -45,7 +45,7 @@
                         <td>{{ $user->email }}</td>
                         <td class="d-flex">
 
-                            <a href="{{ route('users.edit', ['id'=>  $user->id]) }}" class="btn btn-primary mx-1 btn-accion">
+                            <a href="{{ route('users.edit', ['slug'=>  $user->slug]) }}" class="btn btn-primary mx-1 btn-accion">
 
                                 <i class="fas fa-edit"></i>
 

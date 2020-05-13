@@ -210,8 +210,7 @@
 
                             </div>
 
-                            {!! Form::number( 'discount', 0, [ 'class' => 'form-control', 'min' => '0.00', 'step' =>
-                            'any' ] ) !!}
+                            {!! Form::number( 'discount', 0, [ 'class' => 'form-control', 'min' => '0.00', 'step' => 'any' ] ) !!}
 
                         </div>
 

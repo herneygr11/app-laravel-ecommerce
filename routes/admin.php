@@ -10,11 +10,11 @@ Route::prefix('/admin')->group( function(){
     Route::get('/usuarios', 'admin\UserController@index')
     ->name('users.index');
 
-    Route::get('/usuarios/{id}', 'admin\UserController@index')
+    Route::get('/usuarios/{slug}/edit', 'admin\UserController@index')
     ->name('users.edit');
 
     Route::put('/usuarios/{id}', 'admin\UserController@index')
-    ->name('users.edit');
+    ->name('users.update');
 
     Route::delete('/usuarios/{id}', 'admin\UserController@index')
     ->name('users.delete');
@@ -30,10 +30,10 @@ Route::prefix('/admin')->group( function(){
     Route::post('/productos', 'admin\ProductController@saveProduct')
         ->name('products.save');
 
-    Route::get('/productos/{slug}', 'admin\ProductController@editProduct')
+    Route::get('/productos/{slug}/edit', 'admin\ProductController@editProduct')
         ->name('products.edit');
 
-    Route::post('/productos/{id}', 'admin\ProductController@updateProduct')
+    Route::put('/productos/{id}', 'admin\ProductController@updateProduct')
         ->name('products.update');
 
     Route::post('/productos/{id}', 'admin\ProductController@delete')
@@ -44,7 +44,7 @@ Route::prefix('/admin')->group( function(){
     Route::get('/categorias', 'admin\CategoryController@index')
         ->name('categories.index');
         
-    Route::get('/categorias/{slug}', 'admin\CategoryController@editCategory')
+    Route::get('/categorias/{slug}/edit', 'admin\CategoryController@editCategory')
         ->name('categories.edit');
 
     Route::post('/categorias', 'admin\CategoryController@saveCategory')

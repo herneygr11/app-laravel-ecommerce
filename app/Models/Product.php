@@ -18,8 +18,7 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'slug', 'image', 'category_id', 'price', 'in_discount', 'discount', 'description', 'status'
-    ];
+        'name', 'slug', 'image', 'image_path', 'category_id', 'price', 'in_discount', 'discount', 'description', 'status' ];
 
     /**
      * Return the sluggable configuration array for this model.
@@ -36,4 +35,9 @@ class Product extends Model
         ];
     }
 
-} # Enc clas Product
+    public function category()
+    {
+        return $this->belongsTo( Category::class );
+    } # End method category
+
+} # End clas Product

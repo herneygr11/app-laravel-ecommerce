@@ -21,8 +21,10 @@ class ProductController extends Controller
 
     public function index()
     {
+        $products = Product::orderBy( 'id', 'desc' )->paginate(20);
+
         if ( view()->exists('admin.products.index') ){
-            return view('admin.products.index');
+            return view('admin.products.index', compact('products'));
         }
     } # End method index
 
@@ -53,10 +55,41 @@ class ProductController extends Controller
         $imageMiniature->save( $path . '/' . 'm_' . $fileName );
 
         $request['image'] = $fileName;
+        $request['image_path'] = $path;
         
         if ( Product::create( $request->all() ) ) {
             return redirect()->route('products.index');
         }
     } # End method saveProduct
+
+    public function editProduct( String $slug )
+    {
+        $categories = Category::all()->pluck('name', 'id');
+
+        $product =  Product::where( 'slug', $slug )
+        ->first();
+
+        if ( view()->exists('admin.products.edit') ){
+            return view('admin.products.edit', compact( 'categories', 'product' ) );
+        }
+    } # End method editProduct
+
+    public function updateProduct( ProductRequest $request, int $id )
+    {
+        $product = Product::findOrFail( $id );
+
+        if ( $product->update( $request->all() ) ) {
+            return redirect()->route('products.index');
+        }
+    } # End method updateProduct
+
+    public function deleteProduct( int $id )
+    {
+        $product = Product::findOrFail( $id );
+
+        if ( $product->delete() ) {
+            return redirect()->route('products.index');
+        }
+    } # End method deleteProduct
 
 } # End class ProductController

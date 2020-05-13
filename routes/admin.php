@@ -29,6 +29,15 @@ Route::prefix('/admin')->group( function(){
 
     Route::post('/productos', 'admin\ProductController@saveProduct')
         ->name('products.save');
+
+    Route::get('/productos/{slug}', 'admin\ProductController@editProduct')
+        ->name('products.edit');
+
+    Route::post('/productos/{id}', 'admin\ProductController@updateProduct')
+        ->name('products.update');
+
+    Route::post('/productos/{id}', 'admin\ProductController@delete')
+        ->name('products.delete');
     # End router products
 
     # Start router Categories

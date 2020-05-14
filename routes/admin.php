@@ -8,16 +8,16 @@ Route::prefix('/admin')->group( function(){
 
     # Start router usuario
     Route::get('/usuarios', 'admin\UserController@index')
-    ->name('users.index');
+        ->name('users.index');
 
     Route::get('/usuarios/{slug}/edit', 'admin\UserController@index')
-    ->name('users.edit');
+        ->name('users.edit');
 
     Route::put('/usuarios/{id}', 'admin\UserController@index')
-    ->name('users.update');
+        ->name('users.update');
 
     Route::delete('/usuarios/{id}', 'admin\UserController@index')
-    ->name('users.delete');
+        ->name('users.delete');
     # End router usuario
 
     # Start router products
@@ -38,6 +38,9 @@ Route::prefix('/admin')->group( function(){
 
     Route::post('/productos/{id}', 'admin\ProductController@delete')
         ->name('products.delete');
+
+    Route::post('/productos/galeria/add', 'admin\ProductController@addImageGallery')
+        ->name('products.gallery');
     # End router products
 
     # Start router Categories

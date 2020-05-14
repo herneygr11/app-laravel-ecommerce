@@ -115,3 +115,28 @@ body {
   width: 40px;
   height: 30px;
 }
+.input_product_image {
+  display: none;
+}
+.product_gallery {
+  overflow: hidden;
+}
+.product_gallery .tumb {
+  display: block;
+  margin-right: 1%;
+  width: 49%;
+}
+.product_gallery .tumb a {
+  border: 1px dashed #666;
+  border-radius: 4px;
+  color: #333;
+  display: block;
+  font-size: 2em;
+  text-align: center;
+  padding: 20px 0px;
+  width: 100%;
+}
+.product_gallery .tumb a:hover {
+  background-color: #2caaff;
+  color: #fff;
+}

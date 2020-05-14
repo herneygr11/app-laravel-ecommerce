@@ -320,10 +320,36 @@
                 </div>
 
                 <div class="inside">
-                    <img src="{{ asset($product->image_path . '/' . $product->image) }}" class="img-fluid"
-                        alt="{{ $product->name }}">
+                    <img src="{{ asset($product->image_path . '/' . $product->image) }}" class="img-fluid" alt="{{ $product->name }}">
                 </div>
 
+            </div>
+
+            <div class="panel shadow mt-4">
+                <div class="header">
+
+                    <div class="d-flex align-items-center justify-content-between">
+
+                        <h2 class="title">
+                            <i class="fas fa-images"></i>
+                            Galeria
+                        </h2>
+
+                    </div>
+
+                </div>
+
+                <div class="inside product_gallery">
+                    {!! Form::open( ['route' => 'products.gallery', 'files' => true ] )!!}
+                        {!! Form::file('file_image', [ 'id' => 'product_image', 'accept' => 'image/*', 'class' => 'input_product_image' ]) !!}
+                    {!! Form::close() !!}
+
+                    <div class="tumb">
+                        <a href="#" id="btn_product_image">
+                            <i class="fas fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
 

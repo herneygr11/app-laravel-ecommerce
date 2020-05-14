@@ -32,7 +32,8 @@ mix.scripts(
     [
         "resources/js/jquery-3.4.1.slim.min.js",
         "resources/js/popper.min.js",
-        "resources/js/bootstrap.min.js"
+        "resources/js/bootstrap.min.js",
+        'resources/js/app/products/product-edit.js'
     ],
     "public/js/app.js"
 );

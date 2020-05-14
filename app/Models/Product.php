@@ -40,9 +40,9 @@ class Product extends Model
         return $this->belongsTo( Category::class );
     } # End method category
 
-    public function ProductGalleries()
+    public function productGalleries()
     {
         return $this->hasMany( ProductGallery::class );
-    } # End method ProductGalleries
+    } # End method productGalleries
 
 } # End clas Product

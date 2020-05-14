@@ -355,6 +355,20 @@
                             <i class="fas fa-plus"></i>
                         </a>
                     </div>
+
+                    <div class="tumbs">
+                        @foreach ($product->productGalleries as $image)
+                            <div class="tumb">
+                                <a 
+                                data-fancybox="gallery"
+                                {{-- $product->image_path . '/m_' . $product->image --}}
+                                href="{{ asset('#') }}"
+                            >
+                                <img src="{{ asset($image->image_path . '/m_' . $image->image) }}" width="64" alt="" >
+                            </a>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>

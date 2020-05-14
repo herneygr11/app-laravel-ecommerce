@@ -340,9 +340,15 @@
                 </div>
 
                 <div class="inside product_gallery">
-                    {!! Form::open( ['route' => 'products.gallery', 'files' => true ] )!!}
+                    {!! Form::open( ['route' => [ 'products.gallery', 'id' => $product->id ], 'files' => true, 'id' => 'form_product_gallery'] )!!}
                         {!! Form::file('file_image', [ 'id' => 'product_image', 'accept' => 'image/*', 'class' => 'input_product_image' ]) !!}
                     {!! Form::close() !!}
+
+                    @error('file_image')
+                        <div class="ml-3 pt-1 d-block text-danger">
+                            {{ $message }}
+                        </div>
+                    @enderror
 
                     <div class="tumb">
                         <a href="#" id="btn_product_image">

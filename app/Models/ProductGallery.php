@@ -15,7 +15,7 @@ class ProductGallery extends Model
      * @var array
      */
     protected $fillable = [
-        'image', 'file_path', 'product_id'
+        'image', 'image_path', 'product_id'
     ];
 
 } # End class ProductGallery

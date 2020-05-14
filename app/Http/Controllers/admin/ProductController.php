@@ -4,9 +4,11 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductCreateRequest;
+use App\Http\Requests\ProductGalletyRequest;
 use App\Http\Requests\ProductUpdateRequest;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\ProductGallery;
 use Str, Image;
 
 class ProductController extends Controller
@@ -79,7 +81,7 @@ class ProductController extends Controller
     public function updateProduct(ProductUpdateRequest $request, int $id)
     {
         // preparamos para subir la imagen al servidor
-        if ($request->hasFile('image')) {
+        if ($request->hasFile('file_image')) {
             $path = 'images/products/' . date('Y-m-d');
             $fileExt = trim($request->file('file_image')->getClientOriginalExtension());
             $fileName = rand(1, 999) . '-' . Str::slug($request->name) . '.' . $fileExt;
@@ -109,6 +111,35 @@ class ProductController extends Controller
 
         if ($product->delete()) {
             return redirect()->route('products.index');
+        }
+    } # End method deleteProduct
+
+    public function addImageGallery( ProductGalletyRequest $request, int $id )
+    {
+        $name = Product::where('id', $id)
+            ->pluck('name');
+
+        // preparamos para subir la imagen al servidor
+        if ($request->hasFile('file_image')) {
+            $path = 'images/products/' . date('Y-m-d');
+            $fileExt = trim($request->file('file_image')->getClientOriginalExtension());
+            $fileName = rand(1, 999) . '-' . Str::slug($name[0]) . '.' . $fileExt;
+
+            $request->file('file_image')->move($path, $fileName);
+
+            $imageMiniature = Image::make($path . '/' . $fileName);
+            $imageMiniature->fit(256, 256, function ($constraint) {
+                $constraint->upsize();
+            });
+            $imageMiniature->save($path . '/' . 'm_' . $fileName);
+
+            $request['image'] = $fileName;
+            $request['image_path'] = $path;
+            $request['product_id'] = $id;
+        }
+
+        if (ProductGallery::create( $request->all() )) {
+            return back();
         }
     } # End method deleteProduct
 

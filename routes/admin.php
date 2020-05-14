@@ -39,7 +39,7 @@ Route::prefix('/admin')->group( function(){
     Route::post('/productos/{id}', 'admin\ProductController@delete')
         ->name('products.delete');
 
-    Route::post('/productos/galeria/add', 'admin\ProductController@addImageGallery')
+    Route::post('/productos/galeria/{id}/add', 'admin\ProductController@addImageGallery')
         ->name('products.gallery');
     # End router products
 

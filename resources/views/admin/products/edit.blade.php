@@ -350,7 +350,7 @@
                         </div>
                     @enderror
 
-                    <div class="tumb">
+                    <div class="btn-submit">
                         <a href="#" id="btn_product_image">
                             <i class="fas fa-plus"></i>
                         </a>

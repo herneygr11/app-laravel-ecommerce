@@ -121,22 +121,22 @@ body {
 .product_gallery {
   overflow: hidden;
 }
-.product_gallery .tumb {
+.product_gallery .btn-submit {
   display: block;
   margin-right: 1%;
-  width: 49%;
+  width: 100%;
 }
-.product_gallery .tumb a {
+.product_gallery .btn-submit a {
   border: 1px dashed #666;
   border-radius: 4px;
   color: #333;
   display: block;
-  font-size: 2em;
+  font-size: 1.5em;
   text-align: center;
-  padding: 20px 0px;
+  padding: 15px 0px;
   width: 100%;
 }
-.product_gallery .tumb a:hover {
+.product_gallery .btn-submit a:hover {
   background-color: #2caaff;
   color: #fff;
 }

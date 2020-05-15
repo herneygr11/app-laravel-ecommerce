@@ -166,3 +166,10 @@ body {
 .product_gallery .tumbs .tumb:nth-child(odd) {
   margin-left: 1%;
 }
+.contetet-paginate {
+  padding: 0px !important;
+}
+.contetet-paginate nav .pagination {
+  margin: 0px;
+  padding-top: 3px;
+}

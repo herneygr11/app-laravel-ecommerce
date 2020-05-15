@@ -69,17 +69,19 @@ class ProductController extends Controller
     public function editProduct(String $slug)
     {
         $categories = Category::all()->pluck('name', 'id');
-
+        
         $product =  Product::where('slug', $slug)
-            ->first();
-
+        ->first();
+        
         if (view()->exists('admin.products.edit')) {
             return view('admin.products.edit', compact('categories', 'product'));
         }
     } # End method editProduct
-
+    
     public function updateProduct(ProductUpdateRequest $request, int $id)
     {
+        $product = Product::findOrFail($id);
+
         // preparamos para subir la imagen al servidor
         if ($request->hasFile('file_image')) {
             $path = 'images/products/' . date('Y-m-d');
@@ -96,9 +98,12 @@ class ProductController extends Controller
 
             $request['image'] = $fileName;
             $request['image_path'] = $path;
+
+            unlink( $product->image_path . '/' . $product->image  );
+            unlink( $product->image_path . '/m_' . $product->image  );
         }
 
-        $product = Product::findOrFail($id);
+
 
         if ($product->update($request->all())) {
             return redirect()->route('products.index');
@@ -152,8 +157,6 @@ class ProductController extends Controller
         }
 
         if ( $image->delete() ) {
-            unlink( $image->image_path . '/' . $image->image  );
-            unlink( $image->image_path . '/m_' . $image->image  );
             return back();
         }
     } // End method deleteImageGallery

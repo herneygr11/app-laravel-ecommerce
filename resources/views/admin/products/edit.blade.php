@@ -252,7 +252,7 @@
                                     </div>
 
                                     {!! Form::select( 'status', [ '0' => 'Inactivo/a', '1' => 'Activo/a'] ,
-                                    null, [ 'class' => 'form-control' ] ) !!}
+                                    $product->status, [ 'class' => 'form-control' ] ) !!}
 
                                 </div>
 

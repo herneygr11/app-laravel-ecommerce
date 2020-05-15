@@ -48,8 +48,8 @@
                 </thead>
                 <tbody>
                     @foreach ($products as $product)
-                    <tr class="">
-                        <td> {{ $product->id }} </td>
+                    <tr>
+                        <td @if ( $product->status == 0 ) class="table-danger" @endif> {{ $product->id }} </td>
                         <td>
                             <a 
                                 data-fancybox="gallery"
@@ -74,9 +74,7 @@
                             ] ) !!}
 
                             <button class="btn btn-danger mx-1 btn-accion">
-
                                 <i class="fas fa-trash-alt"></i>
-
                             </button>
 
                             {!! Form::close() !!}
@@ -85,6 +83,11 @@
                     </tr>
                     @endforeach
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="6" class="contetet-paginate">{!! $products->render() !!}</td>
+                    </tr>
+                </tfoot>
             </table>
 
         </div>

@@ -21,16 +21,16 @@
     <div class="main">
         <ul>
             <li>
-                <a href="{{ route('admin.index') }}"> <i class="fas fa-home"></i>Dashboard</a>
+                <a href="{{ route('admin.index') }}" class="lk-dashboard"> <i class="fas fa-home"></i>Dashboard</a>
             </li>
             <li>
-                <a href="{{ route('users.index') }}"> <i class="fas fa-user"></i>Usuarios</a>
+                <a href="{{ route('users.index') }}" class="lk-user"> <i class="fas fa-user"></i>Usuarios</a>
             </li>
             <li>
-                <a href="{{ route('products.index') }}"> <i class="fas fa-boxes"></i>Productos</a>
+                <a href="{{ route('products.index') }}" class="lk-product"> <i class="fas fa-boxes"></i>Productos</a>
             </li>
             <li>
-                <a href="{{ route('categories.index') }}"> <i class="fas fa-folder-open"></i>Categorias</a>
+                <a href="{{ route('categories.index') }}" class="lk-category"> <i class="fas fa-folder-open"></i>Categorias</a>
             </li>
         </ul>
     </div>

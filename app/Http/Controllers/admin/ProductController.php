@@ -143,4 +143,19 @@ class ProductController extends Controller
         }
     } # End method deleteProduct
 
+    public function deleteImageGallery(int $idImage, int $idProduct )
+    {
+        $image = ProductGallery::findOrFail( $idImage );
+
+        if ( $image->product_id != $idProduct ) {
+            return back();
+        }
+
+        if ( $image->delete() ) {
+            unlink( $image->image_path . '/' . $image->image  );
+            unlink( $image->image_path . '/m_' . $image->image  );
+            return back();
+        }
+    } // End method deleteImageGallery
+
 } # End class ProductController

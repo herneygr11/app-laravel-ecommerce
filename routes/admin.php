@@ -41,6 +41,9 @@ Route::prefix('/admin')->group( function(){
 
     Route::post('/productos/galeria/{id}/add', 'admin\ProductController@addImageGallery')
         ->name('products.gallery');
+
+    Route::delete('/productos/galeria/{idImage}/{idProduct}', 'admin\ProductController@deleteImageGallery')
+        ->name('products.gallery.delete');
     # End router products
 
     # Start router Categories

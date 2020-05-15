@@ -140,3 +140,29 @@ body {
   background-color: #2caaff;
   color: #fff;
 }
+.product_gallery .tumbs {
+  overflow: hidden;
+}
+.product_gallery .tumbs .tumb {
+  float: left;
+  margin-left: 1%;
+  position: relative;
+  width: 48%;
+}
+.product_gallery .tumbs .tumb button {
+  background: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  display: inline-block;
+  color: #fff;
+  padding: 6px 10px;
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+}
+.product_gallery .tumbs .tumb img {
+  border-radius: 4px;
+  width: 100%;
+}
+.product_gallery .tumbs .tumb:nth-child(odd) {
+  margin-left: 1%;
+}

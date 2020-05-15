@@ -356,16 +356,15 @@
                         </a>
                     </div>
 
-                    <div class="tumbs">
+                    <div class="tumbs mt-3">
                         @foreach ($product->productGalleries as $image)
                             <div class="tumb">
-                                <a 
-                                data-fancybox="gallery"
-                                {{-- $product->image_path . '/m_' . $product->image --}}
-                                href="{{ asset('#') }}"
-                            >
-                                <img src="{{ asset($image->image_path . '/m_' . $image->image) }}" width="64" alt="" >
-                            </a>
+                                {!! Form::open( [ 'route' => ['products.gallery.delete', 'idImage' => $image->id, 'idProduct' => $product->id], 'method' => 'delete']) !!}
+                                <button data-toggle="tooltip" data-placement="top" title="Eliminar">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                                {!! Form::close() !!}
+                                <img src="{{ asset($image->image_path . '/m_' . $image->image) }}" alt="" >
                             </div>
                         @endforeach
                     </div>

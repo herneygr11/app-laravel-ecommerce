@@ -18,9 +18,9 @@ class ProductGallery extends Model
         'image', 'image_path', 'product_id'
     ];
 
-    public function Product()
+    public function product()
     {
         return $this->belongsTo( Product::class );
-    } // End method Product
+    } // End method product
 
 } # End class ProductGallery

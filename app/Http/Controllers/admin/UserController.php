@@ -13,13 +13,18 @@ class UserController extends Controller
         //
     } # End method __construct
 
-    public function index()
+    public function index( int $status = null )
     {
-        $users = User::orderBy('id', 'Desc')
-            ->get();
+        if ( $status != null ) {
+            $users = User::where('status', $status)
+                ->orderBy('id', 'Desc')
+                ->paginate(20);
+        }else {
+            $users = User::orderBy('id', 'Desc')
+                ->paginate(20); 
+        }
 
-        return view('admin.users.index', compact('users'))
-            ->render();
+        return view('admin.users.index', compact('users'));
     } # End method index
 
     public function editUser( String $slug )

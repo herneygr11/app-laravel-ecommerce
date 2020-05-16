@@ -7,7 +7,7 @@ Route::prefix('/admin')->group( function(){
         ->name('admin.index');
 
     # Start router usuario
-    Route::get('/usuarios', 'admin\UserController@index')
+    Route::get('/usuarios/{status?}', 'admin\UserController@index')
         ->name('users.index');
 
     Route::get('/usuarios/{slug}/edit', 'admin\UserController@editUser')

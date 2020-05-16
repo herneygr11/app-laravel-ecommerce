@@ -10,7 +10,7 @@ Route::prefix('/admin')->group( function(){
     Route::get('/usuarios', 'admin\UserController@index')
         ->name('users.index');
 
-    Route::get('/usuarios/{slug}/edit', 'admin\UserController@index')
+    Route::get('/usuarios/{slug}/edit', 'admin\UserController@editUser')
         ->name('users.edit');
 
     Route::put('/usuarios/{id}', 'admin\UserController@index')

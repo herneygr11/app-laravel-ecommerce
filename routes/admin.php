@@ -16,6 +16,9 @@ Route::prefix('/admin')->group( function(){
     Route::put('/usuarios/{id}', 'admin\UserController@index')
         ->name('users.update');
 
+    Route::put('/usuarios/{id}', 'admin\UserController@bannedUser')
+        ->name('users.banned');
+
     Route::delete('/usuarios/{id}', 'admin\UserController@index')
         ->name('users.delete');
     # End router usuario

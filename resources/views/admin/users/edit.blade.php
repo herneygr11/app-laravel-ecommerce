@@ -45,7 +45,7 @@
                                     <i class="fas fa-user-tie"></i>
                                     Estado :
                                 </span>
-                                <span>{{ getStatusUser( $user->status ) }}</span>
+                                <span>{{ getStatusUser($user->status ) }}</span>
                                 <span class="title mt-3">
                                     <i class="fas fa-envelope"></i>
                                     Correo eletrónico :
@@ -60,8 +60,14 @@
                                     <i class="fas fa-user-shield"></i>
                                     Rol de usuario :
                                 </span>
-                                <span>{{ getRoleUser( $user->role ) }}</span>
+                                <span>{{ getRoleUser($user->role ) }}</span>
                             </div>
+                            {!! Form::open( [ 'route' => [ 'users.banned', 'id' => $user->id ], 'method' => 'put' ] ) !!}
+                            @if ( $user->status == 100 )
+                                {!! Form::submit('Activar Usuario', [ 'class' => "btn btn-success w-100 mt-2" ]) !!}
+                            @else
+                                {!! Form::submit('Supender Usuario', [ 'class' => "btn btn-danger w-100 mt-2" ]) !!}
+                            @endif
                         </div>
                     </div>
 

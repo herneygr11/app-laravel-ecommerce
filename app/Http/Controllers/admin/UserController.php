@@ -27,6 +27,24 @@ class UserController extends Controller
         return view('admin.users.index', compact('users'));
     } # End method index
 
+    public function bannedUser( int $id )
+    {
+        $user = User::findOrFail( $id );
+
+        
+        if ( $user->status == 100 ) {
+            $user->status = 1;
+        }else{
+            $user->status = 100;
+        }
+
+        $user->update();
+
+        if (view()->exists('admin.users.edit')) {
+            return redirect()->route('users.edit', $user->slug);
+        }
+    }
+
     public function editUser( String $slug )
     {
         $user = User::where('slug', $slug)

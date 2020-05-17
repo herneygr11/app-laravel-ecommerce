@@ -16,10 +16,18 @@ Route::get('/', function () {
 })->name('index');
 
 // Router Auth
-Route::get('/login', 'ConnectController@getLogin')->name('login');
-Route::post('/login', 'ConnectController@postLogin')->name('login');
-Route::get('/logout', 'ConnectController@getLogout')->name('logout');
+Route::get('/login', 'ConnectController@getLogin')
+    ->name('login.index');
+
+Route::post('/login', 'ConnectController@postLogin')
+    ->name('login')->middleware(['isbanned']);
+    
+Route::get('/logout', 'ConnectController@getLogout')
+    ->name('logout');
 
 // Router Registrer
-Route::get('/register', 'ConnectController@getRegister')->name('register');
-Route::post('/register', 'ConnectController@postRegister')->name('register');
+Route::get('/register', 'ConnectController@getRegister')
+    ->name('register');
+
+Route::post('/register', 'ConnectController@postRegister')
+    ->name('register');

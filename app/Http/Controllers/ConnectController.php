@@ -89,7 +89,7 @@ class ConnectController extends Controller
 
         if ( User::create($request->all()) ) {
             
-            return redirect()->route('login');
+            return redirect()->route('login.index');
         }
     } # End method postRegister
 

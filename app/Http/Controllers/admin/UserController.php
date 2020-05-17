@@ -10,7 +10,11 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        //
+        $this->middleware([
+            'auth',
+            'isadmin',
+            'user.status'
+        ]);
     } # End method __construct
 
     public function index( int $status = null )

@@ -1,6 +1,6 @@
 @extends('layouts.login')
 
-@section('title_page', 'Login')
+@section('title_page', 'Recuperar contraseña')
 
 @section('content')
 
@@ -14,7 +14,7 @@
 
     <div class="inside">
 
-        {!! Form::open( [ 'route' => 'login'] ) !!}
+        {!! Form::open( [ 'route' => 'recover.email'] ) !!}
 
         <div class="form-group">
 
@@ -42,45 +42,19 @@
 
         </div>
 
-        <div class="form-group">
-
-            <label for="password">Contraseña:</label>
-            <div class="input-group">
-
-                <div class="input-group-prepend">
-
-                    <div class="input-group-text">
-                        <i class="fas fa-lock"></i>
-                    </div>
-
-                </div>
-
-                {!! Form::password( 'password', [ 'class' => 'form-control' ] ) !!}
-
-            </div>
-
-            @error('password')
-            <div class="ml-3 pt-1 d-block text-danger">
-                {{ $message }}
-            </div>
-            @enderror
-
-        </div>
-
-        @if (Session::has('message_login'))
+        @if (Session::has('message_recover'))
 
             <div class="m-2 pt-1 d-block text-danger">
-                {{ Session::get('message_login') }}
+                {{ Session::get('message_recover') }}
             </div>
 
         @endif
 
-        {!! Form::submit('Ingresar', [ 'class' => 'btn btn-success w-100' ]) !!}
+        {!! Form::submit('Recuperar contraseña', [ 'class' => 'btn btn-success w-100' ]) !!}
         {!! Form::close() !!}
 
         <div class="footer mt-3">
-            <a href="{{ route('register') }}">¿No tienes una cuenta?, Registrate</a>
-            <a href="{{ route('recover.index') }}">Recuperar contraseña</a>
+            <a href="{{ route('login') }}">Ya tengo una cuenta</a>
         </div>
 
     </div>

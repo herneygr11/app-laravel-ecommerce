@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RecoverRequest;
 use App\Http\Requests\RegisterRequest;
 use Illuminate\Http\Request;
 use phpDocumentor\Reflection\Types\Boolean;
@@ -107,5 +108,26 @@ class ConnectController extends Controller
 
         return redirect()->route('index');
     } # End method getLogout
+
+    public function recoverPassword()
+    {
+        if (view()->exists('connect.recover')) {
+            return view('connect.recover');
+        }
+    } // End method recoverPassword
+
+    public function emailRecoverPassword( RecoverRequest $request )
+    {
+        $user = User::where('email', $request->email)
+            ->select('email', 'name')
+            ->get()
+            ->first();
+
+        if ( $user == null ) {
+            return back()->with(['message_recover' => 'Este correo electronico no existe']);
+        }
+
+        return $user;
+    } // End method emailRecoverPassword
 
 } # End class ConnectController

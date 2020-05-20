@@ -21,7 +21,13 @@ Route::get('/login', 'ConnectController@getLogin')
 
 Route::post('/login', 'ConnectController@postLogin')
     ->name('login')->middleware(['isbanned']);
-    
+
+Route::get('/recover/password', 'ConnectController@recoverPassword')
+    ->name('recover.index');
+
+Route::post('/recover/password', 'ConnectController@emailRecoverPassword')
+    ->name('recover.email');
+
 Route::get('/logout', 'ConnectController@getLogout')
     ->name('logout');
 

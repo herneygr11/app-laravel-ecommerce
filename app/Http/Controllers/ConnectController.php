@@ -119,15 +119,17 @@ class ConnectController extends Controller
     public function emailRecoverPassword( RecoverRequest $request )
     {
         $user = User::where('email', $request->email)
-            ->select('email', 'name')
+            ->select('email', 'name', 'last_name')
             ->get()
             ->first();
+
+        $code = rand(100000, 999999);
 
         if ( $user == null ) {
             return back()->with(['message_recover' => 'Este correo electronico no existe']);
         }
 
-        return $user;
+        return view('emails.recover', compact('user', 'code'));
     } // End method emailRecoverPassword
 
 } # End class ConnectController

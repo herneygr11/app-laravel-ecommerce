@@ -78,7 +78,7 @@
                         <td>{{ getStatusUser( $user->status ) }}</td>
                         <td class="d-flex">
 
-                            <a href="{{ route('users.edit', ['slug'=>  $user->slug]) }}"
+                            <a href="{{ route('users.edit', $user->slug) }}"
                                 class="btn btn-primary mx-1 btn-accion">
 
                                 <i class="fas fa-edit"></i>

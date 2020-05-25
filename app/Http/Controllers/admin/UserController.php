@@ -49,10 +49,9 @@ class UserController extends Controller
         }
     }
 
-    public function editUser( String $slug )
+    public function editUser( User $slug )
     {
-        $user = User::where('slug', $slug)
-            ->first();
+        $user = User::get()->first();
 
         if (view()->exists('admin.users.edit')) {
             return view('admin.users.edit', compact('user'));

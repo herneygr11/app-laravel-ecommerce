@@ -28,6 +28,9 @@ Route::get('/recover/password', 'ConnectController@recoverPassword')
 Route::post('/recover/password', 'ConnectController@emailRecoverPassword')
     ->name('recover.email');
 
+Route::get('/recover/password/reset/{email}', 'ConnectController@RecoverPasswordReset')
+    ->name('recover.reset');
+
 Route::get('/logout', 'ConnectController@getLogout')
     ->name('logout');
 

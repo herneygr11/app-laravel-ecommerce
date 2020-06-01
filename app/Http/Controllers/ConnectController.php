@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RecoverRequest;
 use App\Http\Requests\RegisterRequest;
-use Illuminate\Http\Request;
-use phpDocumentor\Reflection\Types\Boolean;
+use App\Mail\UserSendRecover;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 
+use Illuminate\Support\Facades\Mail;
 use App\Models\User;
 
 class ConnectController extends Controller
@@ -129,7 +130,15 @@ class ConnectController extends Controller
             return back()->with(['message_recover' => 'Este correo electronico no existe']);
         }
 
-        return view('emails.recover', compact('user', 'code'));
+        // return view('emails.recover_password', compact('user', 'code'));
+        Mail::to($user->email)->send(new UserSendRecover( $user ));
+        return redirect()->route( 'recover.reset', $user->email )
+            ->with( ['message' => 'Hemos enviado un codigo, a su correo'] );
     } // End method emailRecoverPassword
+
+    public function RecoverPasswordReset( string $email )
+    {
+        return view( 'connect.reset', compact('email'));
+    } // End method RecoverPasswordReset
 
 } # End class ConnectController

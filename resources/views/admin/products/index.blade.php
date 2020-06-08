@@ -63,7 +63,7 @@
                         <td> {{ $product->price }} </td>
                         <td class="d-flex">
 
-                            <a href="{{ route('products.edit', ['slug' =>  $product->slug]) }}"
+                            <a href="{{ route('products.edit', $product->slug) }}"
                                 class="btn btn-primary mx-1 btn-accion">
 
                                 <i class="fas fa-edit"></i>

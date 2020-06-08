@@ -33,7 +33,7 @@ Route::prefix('/admin')->group( function(){
     Route::post('/productos', 'admin\ProductController@saveProduct')
         ->name('products.save');
     # TODO: cambiar el estilo de la ruta para mayor compresion para todas las rutas con slug
-    Route::get('/productos/{slug}/edit', 'admin\ProductController@editProduct')
+    Route::get('/productos/{user:slug}/edit', 'admin\ProductController@editProduct')
         ->name('products.edit');
 
     Route::put('/productos/{id}', 'admin\ProductController@updateProduct')

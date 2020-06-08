@@ -69,12 +69,11 @@ class ProductController extends Controller
         }
     } # End method saveProduct
 
-    public function editProduct(String $slug)
+    public function editProduct(Product $slug)
     {
         $categories = Category::all()->pluck('name', 'id');
         
-        $product =  Product::where('slug', $slug)
-        ->first();
+        $product = Product::get()->first();
         
         if (view()->exists('admin.products.edit')) {
             return view('admin.products.edit', compact('categories', 'product'));

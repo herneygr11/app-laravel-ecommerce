@@ -53,7 +53,7 @@ Route::prefix('/admin')->group( function(){
     Route::get('/categorias', 'admin\CategoryController@index')
         ->name('categories.index');
         
-    Route::get('/categorias/{slug}/edit', 'admin\CategoryController@editCategory')
+    Route::get('/categorias/{category:slug}/edit', 'admin\CategoryController@editCategory')
         ->name('categories.edit');
 
     Route::post('/categorias', 'admin\CategoryController@saveCategory')

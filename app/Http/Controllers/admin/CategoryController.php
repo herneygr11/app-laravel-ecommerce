@@ -63,13 +63,12 @@ class CategoryController extends Controller
      *  @param String $slug
      *  @return view categories.index
      */
-    public function editCategory(String $slug)
+    public function editCategory(Category $slug)
     {
         $categories = Category::orderBy( 'id', 'Desc' )
         ->get();
 
-        $category = Category::where( 'slug', $slug )
-        ->first();
+        $category = Category::get()->first();
 
         if ( view()->exists('admin.categories.edit') ){
             return view('admin.categories.edit', compact( 'categories', 'category' ));

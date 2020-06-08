@@ -107,7 +107,7 @@
                                 <td class="text-center">{!! htmlspecialchars_decode( $category->icon ) !!}</td>
                                 <td>{{ $category->name }}</td>
                                 <td class="d-flex">
-                                    <a href="{{ route('categories.edit', [ 'slug'=> $category->slug ]) }}"
+                                    <a href="{{ route('categories.edit', $category->slug) }}"
                                         class="btn btn-primary mx-1 btn-accion">
 
                                         <i class="fas fa-edit"></i>

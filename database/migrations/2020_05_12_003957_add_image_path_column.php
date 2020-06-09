@@ -14,7 +14,7 @@ class AddImagePathColumn extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->string('image_path')->after('image');
+            $table->string('image_path')->after('image')->nullable();
         });
     }
 

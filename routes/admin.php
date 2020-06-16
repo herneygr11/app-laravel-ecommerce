@@ -13,6 +13,12 @@ Route::prefix('/admin')->group( function(){
     Route::get('/usuarios/{user:slug}/edit', 'admin\UserController@editUser')
         ->name('users.edit');
 
+    Route::get('/usuarios/{user:slug}/permissions', 'admin\UserController@permissionsUser')
+        ->name('users.permissions');
+
+    Route::post('/usuarios/{user:id}/permissions', 'admin\UserController@setPermissionsUser')
+        ->name('users.permissions');
+
     Route::put('/usuarios/{id}', 'admin\UserController@index')
         ->name('users.update');
 
@@ -33,7 +39,7 @@ Route::prefix('/admin')->group( function(){
     Route::post('/productos', 'admin\ProductController@saveProduct')
         ->name('products.save');
     # TODO: cambiar el estilo de la ruta para mayor compresion para todas las rutas con slug
-    Route::get('/productos/{user:slug}/edit', 'admin\ProductController@editProduct')
+    Route::get('/productos/{Product:slug}/edit', 'admin\ProductController@editProduct')
         ->name('products.edit');
 
     Route::put('/productos/{id}', 'admin\ProductController@updateProduct')

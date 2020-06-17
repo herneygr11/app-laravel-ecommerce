@@ -85,6 +85,13 @@
 
                             </a>
 
+                            <a href="{{ route('users.permissions', $user->slug) }}"
+                                class="btn btn-warning mx-1 btn-accion">
+
+                                <i class="fas fa-cogs"></i>
+
+                            </a>
+
                             {!! Form::open( [ 'route' => ['users.delete', 'id' => $user->id, 'method' => 'delete'] ] )
                             !!}
 

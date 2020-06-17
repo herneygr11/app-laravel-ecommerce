@@ -1,7 +1,5 @@
 <?php
 
-use Hamcrest\Core\HasToString;
-
 function getUserPermission(string $json, string $key) : string
 {
     if ($json == null) {

@@ -3,16 +3,16 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
+use View;
 
 class CategoryController extends Controller
 {
     /**
      * Llamamos librerias necesarias y middleware
      */
-    public function __construct() 
+    public function __construct()
     {
         $this->middleware([
             'auth',
@@ -32,7 +32,7 @@ class CategoryController extends Controller
     {
         $categories = Category::orderBy( 'id', 'Desc' )
         ->get();
-        
+
         if (view()->exists('admin.categories.index')){
             return view('admin.categories.index', compact( 'categories' ) );
         }
@@ -49,7 +49,7 @@ class CategoryController extends Controller
     public function saveCategory( CategoryRequest $request )
     {
         $request['icon'] = e( $request['icon'] );
-        
+
         if ( Category::create( $request->all() ) ) {
             return redirect()->route('categories.index');
         }
@@ -63,12 +63,10 @@ class CategoryController extends Controller
      *  @param String $slug
      *  @return view categories.index
      */
-    public function editCategory(Category $slug)
+    public function editCategory(Category $category)
     {
         $categories = Category::orderBy( 'id', 'Desc' )
         ->get();
-
-        $category = Category::get()->first();
 
         if ( view()->exists('admin.categories.edit') ){
             return view('admin.categories.edit', compact( 'categories', 'category' ));

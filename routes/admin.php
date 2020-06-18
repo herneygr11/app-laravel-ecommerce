@@ -1,7 +1,7 @@
 <?php
 
 # Prefijos para nuestras rutas de admin
-Route::prefix('/admin')->group( function(){
+Route::prefix('/admin')->group(function () {
 
     Route::get('/', 'admin\DashboarController@getDashboar')
         ->name('admin.index');
@@ -58,7 +58,7 @@ Route::prefix('/admin')->group( function(){
     # Start router Categories
     Route::get('/categorias', 'admin\CategoryController@index')
         ->name('categories.index');
-        
+
     Route::get('/categorias/{category:slug}/edit', 'admin\CategoryController@editCategory')
         ->name('categories.edit');
 
